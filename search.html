@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav id="Menu">
+        <ul>
+            <li><a class="menuLink" href="/">Add members</a></li>
+            <li><a class="menuLink" href="/">List</a></li>
+            <li><a class="menuLink" href="/search">Search</a></li>
+            <style>
+                #Menu {
+                    height: 30px;
+                    width: 850px;
+                }
+
+                #Menu ul li {
+                    list-style: none;
+                    color: white;
+                    background-color: #2d2d2d;
+                    float: left;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+
+                #Menu .menuLink {
+                    text-decoration: none;
+                    color: white;
+                    display: block;
+                    width: 150px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    font-family: "Trebuchet MS", Dotum, Arial;
+                }
+
+                #Menu .menuLink:hover {
+                    color: black;
+                    background-color: white;
+                }
+            </style>
+        </ul>
+    </nav>
+    <div id="searchMember">
+        <h3>Search Gym member information</h3>
+
+        <form method="post" action="/">
+            <div>
+                <label>Full name</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div>
+                <label>Gender</label>
+                <select id="gender" name="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Year of birth</label>
+                <input type="number" id="yearOfBirth" name="yearOfBirth">
+            </div>
+
+            <div>
+                <label>Personal traning</label>
+                <select id="personalTraining" name="personalTraining">
+                    <option value=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Facility</label>
+            </div>
+
+            <div>
+                <label>1.Locker</label>
+                <select id="locker" name="locker">
+                    <option value=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+            </div>
+
+            <div>
+                <label>2.Poor</label>
+                <select id="poor" name="poor">
+                    <option value=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+            </div>
+
+            <div>
+                <label>3.Shower</label>
+                <select id="shower" name="shower">
+                    <option value=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+            </div>
+
+            <div>
+                <input type="submit" value="save">
+                <input type="reset" value="reset">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

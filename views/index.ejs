@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <nav id="Menu">
+        <ul>
+            <li><a class="menuLink" href="/">Add members</a></li>
+            <li><a class="menuLink" href="/list">List</a></li>
+            <li><a class="menuLink" href="/search">Search</a></li>
+            <style>
+                #Menu {
+                    height: 30px;
+                    width: 850px;
+                }
+
+                #Menu ul li {
+                    list-style: none;
+                    color: white;
+                    background-color: #2d2d2d;
+                    float: left;
+                    line-height: 30px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+
+                #Menu .menuLink {
+                    text-decoration: none;
+                    color: white;
+                    display: block;
+                    width: 150px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    font-family: "Trebuchet MS", Dotum, Arial;
+                }
+
+                #Menu .menuLink:hover {
+                    color: black;
+                    background-color: white;
+                }
+            </style>
+        </ul>
+    </nav>
+    <div id="listMember">
+        
+        <table class="table" border="1">
+            <tbody>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Year Of Birth</th>
+                    <th scope="col">Personal Training</th>
+                    <th scope="col">Facility - Locker</th>
+                    <th scope="col">Facility - Poor</th>
+                    <th scope="col">Facility - Shower</th>
+                    </tr>
+                
+                <%memberList.forEach(member => {%>
+                <tr>
+                    <th scope="row"><%= member.name %></th>
+                    <th scope="row"><%= member.gender %></th>
+                    <th scope="row"><%= member.yearOfBirth %></th>
+                    <th scope="row"><%= member.personalTraining %></th>
+                    <th scope="row"><%= member.facility.locker %></th>
+                    <th scope="row"><%= member.facility.poor %></th>
+                    <th scope="row"><%= member.facility.shower %></th>
+                </tr>
+            <%})%>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
