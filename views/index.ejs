@@ -8,13 +8,23 @@
 </head>
 
 <body>
+
     <nav id="Menu">
         <ul>
             <li><a class="menuLink" href="/">Add members</a></li>
             <li><a class="menuLink" href="/list">List</a></li>
             <li><a class="menuLink" href="/search">Search</a></li>
             <style>
+                body {
+                    font-family: "Trebuchet MS", Dotum, Arial;
+                }
+
+                div {
+                    padding: 3px;
+                }
+
                 #Menu {
+
                     height: 30px;
                     width: 850px;
                 }
@@ -46,35 +56,119 @@
             </style>
         </ul>
     </nav>
-    <div id="listMember">
-        
-        <table class="table" border="1">
-            <tbody>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Year Of Birth</th>
-                    <th scope="col">Personal Training</th>
-                    <th scope="col">Facility - Locker</th>
-                    <th scope="col">Facility - Poor</th>
-                    <th scope="col">Facility - Shower</th>
+
+    <form method="post" action="/list">
+        <div id="listMember">
+            <h3>List of Gym Members</h3>
+
+            <table class="table" border="1">
+                <tbody>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Year Of Birth</th>
+                        <th scope="col">Personal Training</th>
+                        <th scope="col">Facility - Locker</th>
+                        <th scope="col">Facility - Poor</th>
+                        <th scope="col">Facility - Shower</th>
+                        <th scope="col">edit</th>
+                        <th scope="col">Delete</th>
+
+
+                        <%memberList.forEach(member=> {%>
+                    <tr>
+                        <th scope="row" id="id" name="id">
+                            <%=member.id %>
+                        </th>
+                        <th scope="row" contenteditable=true>
+                            <%= member.name %>
+                        </th>
+
+                        <th scope="row">
+                            <%if (member.gender=="Male" ) {%>
+                                <select id="gender" name="gender">
+                                    <option value="Male" selected=true>Male</option>
+                                    <option value=false>Female</option>
+                                </select>
+                                <%} else {%>
+                                    <select id="personalTraining" name="personalTraining">
+                                        <option value="Male">Male</option>
+                                        <option value="Female" selected=true>Female</option>
+                                    </select>
+                                    <%}%>
+
+                        </th>
+
+                        <th scope="row" contenteditable=true>
+                            <%= member.yearOfBirth %>
+                        </th>
+
+                        <th scope="row">
+                            <%if (member.personalTraining==true) {%>
+                                <select id="personalTraining" name="personalTraining">
+                                    <option value=true selected=true>Yes</option>
+                                    <option value=false>No</option>
+                                </select>
+                                <%} else {%>
+                                    <select id="personalTraining" name="personalTraining">
+                                        <option value=true>Yes</option>
+                                        <option value=false selected=true>No</option>
+                                    </select>
+                                    <%}%>
+                        </th>
+
+                        <th scope="row">
+                            <%if (member.facility.locker==true) {%>
+                                <select id="loecer" name="locker">
+                                    <option value=true selected=true>Yes</option>
+                                    <option value=false>No</option>
+                                </select>
+                                <%} else {%>
+                                    <select id="locker" name="locker">
+                                        <option value=true>Yes</option>
+                                        <option value=false selected=true>No</option>
+                                    </select>
+                                    <%}%>
+                        </th>
+                        <th scope="row">
+                            <%if (member.facility.poor==true) {%>
+                                <select id="poor" name="poor">
+                                    <option value=true selected=true>Yes</option>
+                                    <option value=false>No</option>
+                                </select>
+                                <%} else {%>
+                                    <select id="poor" name="poor">
+                                        <option value=true>Yes</option>
+                                        <option value=false selected=true>No</option>
+                                    </select>
+                                    <%}%>
+                        </th>
+                        <th scope="row">
+                            <%if (member.facility.shower==true) {%>
+                                <select id="shower" name="shower">
+                                    <option value=true selected=true>Yes</option>
+                                    <option value=false>No</option>
+                                </select>
+                                <%} else {%>
+                                    <select id="shower" name="shower">
+                                        <option value=true>Yes</option>
+                                        <option value=false selected=true>No</option>
+                                    </select>
+                                    <%}%>
+                        </th>
+                        <th scope="row">
+                            <input type="submit" id="update" name="update" value="Update">
+                        </th>
+                        
+                        <th>
+                            <input type="submit" id="delete" name="delete" value="Delete">
+                        </th>
                     </tr>
-                
-                <%memberList.forEach(member => {%>
-                <tr>
-                    <th scope="row"><%= member.name %></th>
-                    <th scope="row"><%= member.gender %></th>
-                    <th scope="row"><%= member.yearOfBirth %></th>
-                    <th scope="row"><%= member.personalTraining %></th>
-                    <th scope="row"><%= member.facility.locker %></th>
-                    <th scope="row"><%= member.facility.poor %></th>
-                    <th scope="row"><%= member.facility.shower %></th>
-                </tr>
-            <%})%>
-            </tbody>
-        </table>
-    </div>
-
+                    <%})%>
+                </tbody>
+            </table>
+        </div>
+    </form>
 </body>
-
 </html>
