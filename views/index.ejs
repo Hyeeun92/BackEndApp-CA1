@@ -3,172 +3,176 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 </head>
 
 <body>
+    <style>
+        body {
+            font-family: "Trebuchet MS", Dotum, Arial;
+        }
 
+        div {
+            padding: 3px;
+            
+        }
+
+        #Menu {
+
+            height: 30px;
+            width: 850px;
+        }
+
+        #Menu ul li {
+            list-style: none;
+            color: white;
+            background-color: #2d2d2d;
+            float: left;
+            line-height: 30px;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        #Menu .menuLink {
+            text-decoration: none;
+            color: white;
+            display: block;
+            width: 150px;
+            font-size: 12px;
+            font-weight: bold;
+            font-family: "Trebuchet MS", Dotum, Arial;
+        }
+
+        #Menu .menuLink:hover {
+            color: black;
+            background-color: white;
+        }
+
+        #listMember {
+            display: inline-grid;
+            grid-gap: 0;
+            border:2px solid black;        
+        }
+        
+    </style>
     <nav id="Menu">
         <ul>
             <li><a class="menuLink" href="/">Add members</a></li>
             <li><a class="menuLink" href="/list">List</a></li>
-            <li><a class="menuLink" href="/search">Search</a></li>
-            <style>
-                body {
-                    font-family: "Trebuchet MS", Dotum, Arial;
-                }
 
-                div {
-                    padding: 3px;
-                }
-
-                #Menu {
-
-                    height: 30px;
-                    width: 850px;
-                }
-
-                #Menu ul li {
-                    list-style: none;
-                    color: white;
-                    background-color: #2d2d2d;
-                    float: left;
-                    line-height: 30px;
-                    vertical-align: middle;
-                    text-align: center;
-                }
-
-                #Menu .menuLink {
-                    text-decoration: none;
-                    color: white;
-                    display: block;
-                    width: 150px;
-                    font-size: 12px;
-                    font-weight: bold;
-                    font-family: "Trebuchet MS", Dotum, Arial;
-                }
-
-                #Menu .menuLink:hover {
-                    color: black;
-                    background-color: white;
-                }
-            </style>
         </ul>
     </nav>
 
-    <form method="post" action="/list">
-        <div id="listMember">
-            <h3>List of Gym Members</h3>
+    <h3>List of Gym Members</h3>
 
-            <table class="table" border="1">
-                <tbody>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Gender</th>
-                        <th scope="col">Year Of Birth</th>
-                        <th scope="col">Personal Training</th>
-                        <th scope="col">Facility - Locker</th>
-                        <th scope="col">Facility - Poor</th>
-                        <th scope="col">Facility - Shower</th>
-                        <th scope="col">edit</th>
-                        <th scope="col">Delete</th>
+    <%memberList.forEach(member=> {%>
+        <div class="listMember" id="listMember">
+            
 
+            <div>
+                <label>Id </label>
+                <input type="text" id="id" name="id" value="<%= member.memberId %>">
+            </div>
 
-                        <%memberList.forEach(member=> {%>
-                    <tr>
-                        <th scope="row" id="id" name="id">
-                            <%=member.id %>
-                        </th>
-                        <th scope="row" contenteditable=true>
-                            <%= member.name %>
-                        </th>
+            <div>
+                <label>Full name</label>
+                <input type="text" id="name" name="name" contenteditable=true value="<%= member.name %>">
 
-                        <th scope="row">
-                            <%if (member.gender=="Male" ) {%>
-                                <select id="gender" name="gender">
-                                    <option value="Male" selected=true>Male</option>
-                                    <option value=false>Female</option>
-                                </select>
-                                <%} else {%>
-                                    <select id="personalTraining" name="personalTraining">
-                                        <option value="Male">Male</option>
-                                        <option value="Female" selected=true>Female</option>
-                                    </select>
-                                    <%}%>
+            </div>
 
-                        </th>
+            <div>
+                <label>Gender</label>
+                <%if (member.gender=="Male" ) {%>
+                    <select id="gender" name="gender">
+                        <option value="Male" selected=true>Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <%} else {%>
+                        <select id="gender" name="gender">
+                            <option value="Male">Male</option>
+                            <option value="Female" selected=true>Female</option>
+                        </select>
+                        <%}%>
+            </div>
 
-                        <th scope="row" contenteditable=true>
-                            <%= member.yearOfBirth %>
-                        </th>
+            <div>
+                <label>Year of Birth </label>
+                <input type="text" id="name" name="name" contenteditable=true value="<%= member.yearOfBirth %>">
 
-                        <th scope="row">
-                            <%if (member.personalTraining==true) {%>
-                                <select id="personalTraining" name="personalTraining">
-                                    <option value=true selected=true>Yes</option>
-                                    <option value=false>No</option>
-                                </select>
-                                <%} else {%>
-                                    <select id="personalTraining" name="personalTraining">
-                                        <option value=true>Yes</option>
-                                        <option value=false selected=true>No</option>
-                                    </select>
-                                    <%}%>
-                        </th>
+            </div>
+            <div>
+                <label>Personal traning</label>
+                <%if (member.personalTraining==true) {%>
+                    <select id="personalTraining" name="personalTraining">
+                        <option value=true selected=true>Yes</option>
+                        <option value=false>No</option>
+                    </select>
+                    <%} else {%>
+                        <select id="personalTraining" name="personalTraining">
+                            <option value=true>Yes</option>
+                            <option value=false selected=true>No</option>
+                        </select>
+                        <%}%>
+            </div>
 
-                        <th scope="row">
-                            <%if (member.facility.locker==true) {%>
-                                <select id="loecer" name="locker">
-                                    <option value=true selected=true>Yes</option>
-                                    <option value=false>No</option>
-                                </select>
-                                <%} else {%>
-                                    <select id="locker" name="locker">
-                                        <option value=true>Yes</option>
-                                        <option value=false selected=true>No</option>
-                                    </select>
-                                    <%}%>
-                        </th>
-                        <th scope="row">
-                            <%if (member.facility.poor==true) {%>
-                                <select id="poor" name="poor">
-                                    <option value=true selected=true>Yes</option>
-                                    <option value=false>No</option>
-                                </select>
-                                <%} else {%>
-                                    <select id="poor" name="poor">
-                                        <option value=true>Yes</option>
-                                        <option value=false selected=true>No</option>
-                                    </select>
-                                    <%}%>
-                        </th>
-                        <th scope="row">
-                            <%if (member.facility.shower==true) {%>
-                                <select id="shower" name="shower">
-                                    <option value=true selected=true>Yes</option>
-                                    <option value=false>No</option>
-                                </select>
-                                <%} else {%>
-                                    <select id="shower" name="shower">
-                                        <option value=true>Yes</option>
-                                        <option value=false selected=true>No</option>
-                                    </select>
-                                    <%}%>
-                        </th>
-                        <th scope="row">
-                            <input type="submit" id="update" name="update" value="Update">
-                        </th>
-                        
-                        <th>
-                            <input type="submit" id="delete" name="delete" value="Delete">
-                        </th>
-                    </tr>
-                    <%})%>
-                </tbody>
-            </table>
+            <div>
+                <label>Facility</label>
+            </div>
+
+            <div>
+                <label>1.Locker</label>
+                <%if (member.facility.locker==true) {%>
+                    <select id="locker" name="locker">
+                        <option value=true selected=true>Yes</option>
+                        <option value=false>No</option>
+                    </select>
+                    <%} else {%>
+                        <select id="locker" name="locker">
+                            <option value=true>Yes</option>
+                            <option value=false selected=true>No</option>
+                        </select>
+                        <%}%>
+            </div>
+
+            <div>
+                <label>2.Poor</label>
+                <%if (member.facility.poor==true) {%>
+                    <select id="poor" name="poor">
+                        <option value=true selected=true>Yes</option>
+                        <option value=false>No</option>
+                    </select>
+                    <%} else {%>
+                        <select id="poor" name="poor">
+                            <option value=true>Yes</option>
+                            <option value=false selected=true>No</option>
+                        </select>
+                        <%}%>
+            </div>
+
+            <div>
+                <label>3.Shower</label>
+                <%if (member.facility.shower==true) {%>
+                    <select id="shower" name="shower">
+                        <option value=true selected=true>Yes</option>
+                        <option value=false>No</option>
+                    </select>
+                    <%} else {%>
+                        <select id="shower" name="shower">
+                            <option value=true>Yes</option>
+                            <option value=false selected=true>No</option>
+                        </select>
+                        <%}%>
+            </div>
+
+            <div>
+                <input type="submit" value="save" id="update" name="<%= member.memberId %>">
+                <input type="submit" value="delete" id="delete" name="<%= member.memberId %>">
+            </div>
         </div>
-    </form>
+
+    <%})%>
+
+<script src="/main.js"></script>
 </body>
+
 </html>
