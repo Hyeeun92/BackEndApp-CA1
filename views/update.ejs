@@ -1,0 +1,88 @@
+<html>
+
+<body>
+    <form action="/update/<%= member._id %>" method=POST>
+        <div>Name :
+            <input type="text" name="name" value="<%= member.name %>">
+        </div>
+
+        <div>Gender :
+            <%if (member.gender=="Male" ) {%>
+                <select id="gender" name="gender">
+                    <option value="Male" selected=true>Male</option>
+                    <option value="Female">Female</option>
+                </select>
+                <%} else {%>
+                    <select id="gender" name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female" selected=true>Female</option>
+                    </select>
+                    <%}%>
+        </div>
+
+        <div>Year of Birth :
+            <input type="text" name="yearOfBirth" value="<%=member.yearOfBirth %>">
+        </div>
+
+
+        <div>Personal Training :
+            <%if (member.personalTraining==true) {%>
+                <select id="personalTraining" name="personalTraining">
+                    <option value=true selected=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+                <%} else {%>
+                    <select id="personalTraining" name="personalTraining">
+                        <option value=true>Yes</option>
+                        <option value=false selected=true>No</option>
+                    </select>
+                    <%}%>
+        </div>
+        <div>Facility</div>
+
+        <div>1. Locker :
+            <%if (member.facility.locker==true) {%>
+                <select id="locker" name="locker">
+                    <option value=true selected=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+                <%} else {%>
+                    <select id="locker" name="locker">
+                        <option value=true>Yes</option>
+                        <option value=false selected=true>No</option>
+                    </select>
+                    <%}%>
+        </div>
+
+        <div>2. Poor :
+            <%if (member.facility.poor==true) {%>
+                <select id="poor" name="poor">
+                    <option value=true selected=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+                <%} else {%>
+                    <select id="poor" name="poor">
+                        <option value=true>Yes</option>
+                        <option value=false selected=true>No</option>
+                    </select>
+                    <%}%>
+        </div>
+
+        <div>3. Shower :
+            <%if (member.facility.locker==true) {%>
+                <select id="shower" name="shower">
+                    <option value=true selected=true>Yes</option>
+                    <option value=false>No</option>
+                </select>
+                <%} else {%>
+                    <select id="shower" name="shower">
+                        <option value=true>Yes</option>
+                        <option value=false selected=true>No</option>
+                    </select>
+                    <%}%>
+        </div>
+        <div><button>Update</button></div>
+    </form>
+</body>
+
+</html>
