@@ -24,4 +24,9 @@ This is the simple web application to saving, listing, deleting data in MongoDB 
 <img width="932" alt="Screenshot 2021-11-24 at 11 58 48" src="https://user-images.githubusercontent.com/71330530/143234707-0f1e51cf-8887-4d8b-8c26-fb9d574ac411.png">
 
 ### Delete
+<img width="929" alt="Screenshot 2021-11-24 at 12 03 52" src="https://user-images.githubusercontent.com/71330530/143235175-609c6538-0a26-47b7-a581-7cb8cc0ccda7.png">
+<img width="879" alt="Screenshot 2021-11-24 at 11 44 31" src="https://user-images.githubusercontent.com/71330530/143232812-4c78cb98-33b1-4106-ac7e-e997356aa577.png">
+
+### Demonstration
+https://user-images.githubusercontent.com/71330530/143240252-d31ea5e1-a43f-492f-ae14-cd0567409ed0.mp4
 
