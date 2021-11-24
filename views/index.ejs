@@ -1,5 +1,7 @@
 <html lang="en">
+    <!-- form for listing data -->
 <head>
+    <!-- connect style file -->
     <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -7,12 +9,14 @@
     <ul>
         <% member.forEach((member)=> { %>
             <li>
+                <!--make each member name as button from firebase to connect read.ejs-->
                 <button id="list" onclick="location.href='/<%= member._id %>'">
                     <%= member.name %>
                 </button>
             </li>
             <% })%>
     </ul>
+    <!--call create.ejs-->
     <button id="function" onclick="location.href='/create'">Add Member</button>
 </body>
 

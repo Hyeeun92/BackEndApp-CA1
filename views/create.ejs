@@ -1,26 +1,31 @@
 <html lang="en">
+    <!-- form for create data -->
 
 <head>
+    <!-- connect style file -->
     <link href="../style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+    <!--set form action and method-->
     <form action='/create' method=POST>
         <h3 id="createTitle">Add Gym member information</h3>
         <div>Full name
             <input type="text" name="name">
         </div>
         <div>Gender
+            <!--give option to choose gender-->
             <select id="gender" name="gender">
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
             </select>
         </div>
         <div>Year Of Birth
-            <input type="text" name="yearOfBirth">
+            <input type="number" name="yearOfBirth">
         </div>
 
         <div>Personal traning
+            <!--give option to choose if the member served by personal traner-->
             <select id="personalTraining" name="personalTraining">
                 <option value=true>Yes</option>
                 <option value=false>No</option>
@@ -30,6 +35,7 @@
         <div>
             <label>Facility</label>
         </div>
+        <!--give selection option for facility if user will use or not-->
         <div>1.Locker
             <select id="facility.locker" name="facilirty.locker">
                 <option value=true>Yes</option>

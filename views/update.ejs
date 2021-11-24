@@ -1,15 +1,20 @@
 <html>
-    <head>
-        <link href="../style.css" rel="stylesheet" type="text/css">
-    </head>
+<!-- form for updating data -->
+
+<head>
+    <!-- connect style file -->
+    <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
 <body>
     <form action="/update/<%= member._id %>" method=POST>
-        <h3>Update Gym Member information</h3>
+        <h3 id="updateTitle">Update Gym Member information</h3>
         <div>Name :
             <input type="text" name="name" value="<%= member.name %>">
         </div>
 
         <div>Gender :
+            <!--give gender option and set based on our data-->
             <%if (member.gender=="Male" ) {%>
                 <select id="gender" name="gender">
                     <option value="Male" selected=true>Male</option>
@@ -24,11 +29,11 @@
         </div>
 
         <div>Year of Birth :
-            <input type="text" name="yearOfBirth" value="<%=member.yearOfBirth %>">
+            <input type="number" name="yearOfBirth" value="<%=member.yearOfBirth %>">
         </div>
 
-
         <div>Personal Training :
+            <!--give personal training option and set based on our data-->
             <%if (member.personalTraining==true) {%>
                 <select id="personalTraining" name="personalTraining">
                     <option value=true selected=true>Yes</option>
@@ -41,8 +46,9 @@
                     </select>
                     <%}%>
         </div>
-        <div>Facility</div>
 
+        <div>Facility</div>
+        <!--give facility option and set based on our data-->
         <div>1. Locker :
             <%if (member.facility.locker==true) {%>
                 <select id="locker" name="locker">
@@ -84,7 +90,8 @@
                     </select>
                     <%}%>
         </div>
-        <div><button id="submit">Update</button></div>
+
+        <button id="submit">Update</button>
     </form>
 </body>
 
