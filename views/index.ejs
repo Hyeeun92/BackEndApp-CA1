@@ -1,73 +1,19 @@
 <html lang="en">
-
+<head>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
 <body>
-    <!-- <style>
-        body {
-            font-family: "Trebuchet MS", Dotum, Arial;
-        }
-
-        div {
-            padding: 3px;
-            
-        }
-
-        #Menu {
-
-            height: 30px;
-            width: 850px;
-        }
-
-        #Menu ul li {
-            list-style: none;
-            color: white;
-            background-color: #2d2d2d;
-            float: left;
-            line-height: 30px;
-            vertical-align: middle;
-            text-align: center;
-        }
-
-        #Menu .menuLink {
-            text-decoration: none;
-            color: white;
-            display: block;
-            width: 150px;
-            font-size: 12px;
-            font-weight: bold;
-            font-family: "Trebuchet MS", Dotum, Arial;
-        }
-
-        #Menu .menuLink:hover {
-            color: black;
-            background-color: white;
-        }
-
-        #listMember {
-            display: inline-grid;
-            grid-gap: 0;
-            border:2px solid black;        
-        }
-        
-    </style> -->
-    <!-- <nav id="Menu">
-        <ul>
-            <li><a class="menuLink" href="/">Add members</a></li>
-            <li><a class="menuLink" href="/list">List</a></li>
-
-        </ul>
-    </nav> -->
-
-    <h3>List of Gym Members</h3>
+    <h3 id="indexTitle">List of Gym Members</h3>
     <ul>
         <% member.forEach((member)=> { %>
             <li>
-                <a href="/<%= member._id %>">
+                <button id="list" onclick="location.href='/<%= member._id %>'">
                     <%= member.name %>
-                </a>
-                <% })%>
+                </button>
             </li>
+            <% })%>
     </ul>
-    <a href="/create">Add Member</a>
+    <button id="function" onclick="location.href='/create'">Add Member</button>
 </body>
 
 </html>

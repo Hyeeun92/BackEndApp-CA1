@@ -1,0 +1,104 @@
+body {
+    font-family: "Trebuchet MS", Dotum, Arial;
+    margin: 2rem;
+}
+
+#indexTitle {
+    margin-left: 1.7rem;
+} 
+
+#createTitle{
+    margin-left:1rem;
+}
+
+div {
+    padding:0.3rem;
+}
+
+ul{
+    list-style:none;
+}
+
+#list {
+    font-size: 15px;
+    background-color: black;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 170px;
+    height: 30px;
+    padding:0.2rem;
+    margin-left: -0.5rem;
+    
+}
+#list:hover {
+    background-color: white;
+    color: black;
+}
+
+#function {
+    font-size: 15px;
+    background: #333fff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 170px;
+    height: 30px;
+    padding:0.2rem;
+    margin-left: 2rem;
+}
+
+#function:hover {
+    background-color: white;
+    color: black;
+}
+
+#submit {
+    font-size: 15px;
+    background: #333fff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    padding:0.2rem;
+    margin-left: 1rem;
+}
+
+#submit:hover {
+    background-color: white;
+    color: black;
+}
+
+#readButton {
+    font-size: 15px;
+    background: #333fff;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 100px;
+    height: 30px;
+    padding:0.2rem;
+    margin-left: 0.5rem;
+}
+
+#readButton:hover {
+    background-color: white;
+    color: black;
+}

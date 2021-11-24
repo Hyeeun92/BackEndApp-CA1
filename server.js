@@ -24,6 +24,7 @@ const Member = mongoose.model('member', memberSchema)
 
 const express = require("express")
 const app = express()
+const path = require('path')
 
 const bodyParser = require("body-parser");
 const { render } = require('ejs');
@@ -32,6 +33,7 @@ app.set('view engine', 'ejs')
 app.set('views', 'views')
 const port = 5000
 
+app.use(express.static(path.join(__dirname, 'public')))
 
 app.get("/", (req, res) => {
     Member.find({}, (err, member) => {
@@ -56,7 +58,7 @@ app.post('/create', (req, res) => {
 
 app.get('/:id', (req, res) => {
     Member.findOne({ _id: req.params.id }, (err, member) => {
-        if(err) return res.json(err);
+        if (err) return res.json(err);
         res.render('read', { member: member });
     })
 })
@@ -98,41 +100,6 @@ app.post('/update/:id', (req, res) => {
 });
 
 
-    // app.delete('/list', (req, res) => {
-    //     Member.deleteOne(
-    //         { memberId: req.body.id }
-    //     ).then(result => {
-    //         if (result.deletedCount === 0) {
-    //             return res.json('cannot delete')
-    //         }
-    //         res.json('Deleted')
-    //     })
-    //         .catch(error => console.error(error))
-    //     console.log("id is here" + req.body.id)
-    // })
-
-    // app.put('/list', (req, res) => {
-    //     Member.findOneAndUpdate(
-    //         { memberId: req.body.id },
-    //         {
-    //             name: req.body.name,
-    //             gender: req.body.gender,
-    //             yearOfBirth: req.body.yearOfBirth,
-    //             memberId: req.body.id,
-    //             personalTraining: req.body.personalTraining,
-    //             facility: {
-    //                 locker: req.body.locker,
-    //                 poor: req.body.poor,
-    //                 shower: req.body.shower
-    //             }
-    //         },
-    //         { upsert: true }
-    //     ).then(result => res.json('Success'))
-    //         .catch(error => console.error(error))
-    //     console.log("id is here" + req.body.id)
-    // })
-
-
-    app.listen(port, () => {
-        console.log("server running")
-    })
+app.listen(port, () => {
+    console.log("server running")
+})

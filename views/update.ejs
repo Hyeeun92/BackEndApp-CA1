@@ -1,7 +1,10 @@
 <html>
-
+    <head>
+        <link href="../style.css" rel="stylesheet" type="text/css">
+    </head>
 <body>
     <form action="/update/<%= member._id %>" method=POST>
+        <h3>Update Gym Member information</h3>
         <div>Name :
             <input type="text" name="name" value="<%= member.name %>">
         </div>
@@ -81,7 +84,7 @@
                     </select>
                     <%}%>
         </div>
-        <div><button>Update</button></div>
+        <div><button id="submit">Update</button></div>
     </form>
 </body>
 

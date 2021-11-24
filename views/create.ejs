@@ -1,55 +1,14 @@
 <html lang="en">
 
+<head>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+
 <body>
-    <!-- <nav id="Menu">
-        <ul>
-            <li><a class="menuLink" href="/create">Add members</a></li>
-            <li><a class="menuLink" href="/read">List</a></li>
-            <style>
-                body {
-                    font-family: "Trebuchet MS", Dotum, Arial;
-                }
-
-                div {
-                    padding: 3px;
-                }
-
-                #Menu {
-                    height: 30px;
-                    width: 850px;
-                }
-
-                #Menu ul li {
-                    list-style: none;
-                    color: white;
-                    background-color: #2d2d2d;
-                    float: left;
-                    line-height: 30px;
-                    vertical-align: middle;
-                    text-align: center;
-                }
-
-                #Menu .menuLink {
-                    text-decoration: none;
-                    color: white;
-                    display: block;
-                    width: 150px;
-                    font-size: 12px;
-                    font-weight: bold;
-                    font-family: "Trebuchet MS", Dotum, Arial;
-                }
-
-                #Menu .menuLink:hover {
-                    color: black;
-                    background-color: white;
-                }
-            </style>
-        </ul>
-    </nav> -->
     <form action='/create' method=POST>
-        <h3>Add Gym member information</h3>
+        <h3 id="createTitle">Add Gym member information</h3>
         <div>Full name
-            <input type="text" name="name"> 
+            <input type="text" name="name">
         </div>
         <div>Gender
             <select id="gender" name="gender">
@@ -58,7 +17,7 @@
             </select>
         </div>
         <div>Year Of Birth
-            <input type="text" name="yearOfBirth"> 
+            <input type="text" name="yearOfBirth">
         </div>
 
         <div>Personal traning
@@ -72,29 +31,29 @@
             <label>Facility</label>
         </div>
         <div>1.Locker
-            <select id="locker" name="locker">
+            <select id="facility.locker" name="facilirty.locker">
                 <option value=true>Yes</option>
                 <option value=false>No</option>
             </select>
         </div>
 
         <div>2.Poor
-            <select id="poor" name="poor">
+            <select id="facility.poor" name="facility.poor">
                 <option value=true>Yes</option>
                 <option value=false>No</option>
             </select>
         </div>
 
         <div>3.Shower
-            <select id="shower" name="shower">
+            <select id="facility.shower" name="facility.shower">
                 <option value=true>Yes</option>
                 <option value=false>No</option>
             </select>
         </div>
 
         <div>
-            <button>submit</button>
-            <input type="reset" value="reset">
+            <button id="submit">submit</button>
+            <input id="submit" type="reset" value="reset">
         </div>
 
     </form>

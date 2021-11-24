@@ -1,97 +1,48 @@
 <html lang="en">
 
-<body>
-    <!-- <style>
-            body {
-                font-family: "Trebuchet MS", Dotum, Arial;
-            }
-    
-            div {
-                padding: 3px;
-                
-            }
-    
-            #Menu {
-    
-                height: 30px;
-                width: 850px;
-            }
-    
-            #Menu ul li {
-                list-style: none;
-                color: white;
-                background-color: #2d2d2d;
-                float: left;
-                line-height: 30px;
-                vertical-align: middle;
-                text-align: center;
-            }
-    
-            #Menu .menuLink {
-                text-decoration: none;
-                color: white;
-                display: block;
-                width: 150px;
-                font-size: 12px;
-                font-weight: bold;
-                font-family: "Trebuchet MS", Dotum, Arial;
-            }
-    
-            #Menu .menuLink:hover {
-                color: black;
-                background-color: white;
-            }
-    
-            #listMember {
-                display: inline-grid;
-                grid-gap: 0;
-                border:2px solid black;        
-            }
-            
-        </style> -->
-    <!-- <nav id="Menu">
-            <ul>
-                <li><a class="menuLink" href="/">Add members</a></li>
-                <li><a class="menuLink" href="/list">List</a></li>
-    
-            </ul>
-        </nav> -->
+<head>
+    <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
 
+<body>
     <h3>List of Gym Members</h3>
 
-        <div>
-            Full name : <%= member.name %>
-        </div>
-        <div>
-            Gender : <%= member.gender %>
-        </div>
+    <div>
+        Full name : <%= member.name %>
+    </div>
 
-        <div>
-            Year of Birth : <%= member.yearOfBirth%>
-        </div>
+    <div>
+        Gender : <%= member.gender %>
+    </div>
 
-        <div>
-            Personal training : <%if (member.personalTraining==true) {%> Yes
-                <%} else {%> No <%}%>
-        </div>
+    <div>
+        Year of Birth : <%= member.yearOfBirth%>
+    </div>
 
-        <div>
-            <label>Facility</label>
-        </div>
+    <div>
+        Personal training : <%if (member.personalTraining==true) {%> Yes
+            <%} else {%> No <%}%>
+    </div>
 
-        <div>1.Locker : <%if (member.facility.locker==true) {%> Yes
-                <%} else {%> No <%}%>
-        </div>
-        <div>2.Poor : <%if (member.facility.locker==true) {%> Yes
-                <%} else {%> No <%}%>
-        </div>
-        <div>3.Shower : <%if (member.facility.shower==true) {%> Yes
-                <%} else {%> No <%}%>
-        </div>
+    <div>
+        <label>Facility</label>
+    </div>
 
-        <a href="/delete/<%= member._id %>">Delete</a>
-        <a href="/update/<%= member._id %>">Update</a>
-            <a href=”/”>Back</a>
+    <div>1.Locker : <%if (member.facility.locker==true) {%> Yes
+            <%} else {%> No <%}%>
+    </div>
+
+    <div>2.Poor : <%if (member.facility.locker==true) {%> Yes
+            <%} else {%> No <%}%>
+    </div>
+
+    <div>3.Shower : <%if (member.facility.shower==true) {%> Yes
+            <%} else {%> No <%}%>
+    </div>
+    <button id="readButton" onclick="location.href='/delete/<%= member._id %>'">Delete</button>
+    <button id="readButton" onclick="location.href='/update/<%= member._id %>'">Update</button>
+    <button id="readButton" onclick="location.href='/'">Back</button>
+
 </body>
 
 </html>
